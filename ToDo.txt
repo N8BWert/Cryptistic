@@ -1,0 +1,27 @@
+#Purpose:
+The purpose of Cryptistic is to push the boundaries of AI cryptography to develop a more efficient way to encrypt and decrypt data without sacrificing data security.
+
+
+#How it Works:
+An overfit Deep Neural Network is trained on a plaintext-encryptedtext pairing to find a pattern in random data.  These plaintext/encryptedtext values will be pseudo-random generated strings
+of length 32, consisting of all of the keys found on a standard US keyboard.  There will be 500,000 plaintext and 500,000 encryptedtext in the plaintext-encryptedtext pairing.  A Deep Neural 
+Network will then be overtrained (and overfit) to fit this specific set of plaintext-encryptedtext pairings.  Ideally, any string of length 32 should be encrypted when passed through the neural
+network and decrypted when passed backwards through the neural network.  If this in fact works, this AI algorithm should be able to encrypt and decrypt any data fed to it.
+
+#Distint Parts:
+✓1. Generating 500,000 unique plaintext strings
+✓2. Generating 500,000 unique encryptedtext strings
+✓3. Create transposition dictionary for converting letter characters into two digit integers
+✓4. create transposition dictionary for converting two digit integers into letter characters
+✓5. Create function for converting from a length 32 string into 8 8-digit integers
+✓6. Create function for converting from 8 8-digit integers into a singular length 32 string
+7. Train a Deep Neural Network to establish some sort of overfit regression between the 8 8-digit integers from the plaintext strings and the 8 8-digit integers from the encryptedtext strings
+8. Write a function to run the plaintext strings through the neural network to generate the given encryptedtext strings
+9. Write a function to run the encryptedtext strings backwards through the neural network to generate the given plaintext strings
+10. Test the efficacy of the Deep Neural Network while retraining to make sure that the Deep Neural Network is overfit to the given dataset
+11. Generate 500,000 new unique plaintext strings to serve as the test set for encryption -> These values must be different than the original plaintext strings but not necessarily different than the encryptedtext strings
+12. Find the encryptedtext values associated with these 500,000 test plaintext strings
+    -> Make sure that these values do not collide with any of the originally generated 500,000 unique encryptedtext strings -> if this happens revert to step 7 for more training
+13. Generate 500,000 new unique encryptedtext strings to serve as the test set for decryption -> These values must be different from the original encryptedtext strings but not necessarily different than the plaintext strings
+14. Find the plaintext values associated with these 500,000 test encryptedtext strings
+    -> Make sure that these values do not collide with any of the originally generated 500,000 unique plaintext strings or the 500,000 test plaintext strings -> if this happens revert to step 7 for more training
